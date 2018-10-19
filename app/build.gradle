@@ -39,9 +39,23 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.dagger2Version}"
 
     implementation "androidx.room:room-runtime:${rootProject.ext.roomVersion}"
-    annotationProcessor "androidx.room:room-compiler:${rootProject.ext.roomVersion}"
-
+    kapt "androidx.room:room-compiler:${rootProject.ext.roomVersion}"
     implementation "com.squareup.moshi:moshi-kotlin:${rootProject.ext.moshiVersion}"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:${rootProject.ext.lifecycleVersion}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${rootProject.ext.lifecycleVersion}"
+
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-moshi:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJava2Version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
+
+    implementation "com.facebook.stetho:stetho:${rootProject.ext.stethoVersion}"
+    implementation "com.facebook.stetho:stetho-okhttp3:${rootProject.ext.stethoVersion}"
+
+    implementation "com.jakewharton.timber:timber:${rootProject.ext.timberVersion}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
