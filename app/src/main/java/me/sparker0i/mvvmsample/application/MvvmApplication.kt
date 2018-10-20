@@ -11,6 +11,8 @@ import dagger.android.HasActivityInjector
 import me.sparker0i.mvvmsample.BuildConfig
 import me.sparker0i.mvvmsample.di.component.DaggerAppComponent
 import me.sparker0i.mvvmsample.di.module.AppModule
+import me.sparker0i.mvvmsample.di.module.NetModule
+import me.sparker0i.mvvmsample.utils.Constants
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -29,7 +31,10 @@ class MvvmApplication : Application() , HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder().appModule(AppModule(this)).build().inject(this)
+        DaggerAppComponent.builder()
+                .appModule(AppModule(this))
+                .netModule(NetModule(Constants.BASE_URL))
+                .build().inject(this)
         INSTANCE = this
         initializeTimber()
         initializeStetho()

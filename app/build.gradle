@@ -39,6 +39,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.dagger2Version}"
 
     implementation "androidx.room:room-runtime:${rootProject.ext.roomVersion}"
+    implementation "androidx.room:room-rxjava2:${rootProject.ext.roomVersion}"
     kapt "androidx.room:room-compiler:${rootProject.ext.roomVersion}"
     implementation "com.squareup.moshi:moshi-kotlin:${rootProject.ext.moshiVersion}"
 
