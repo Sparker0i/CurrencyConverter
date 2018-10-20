@@ -10,6 +10,6 @@ import me.sparker0i.mvvmsample.model.Rates
 @Dao interface RatesDao {
     @Query("SELECT COUNT(*) FROM Rates") fun getRatesSize(): Int
     @Query("SELECT * FROM Rates") fun getAllRates(): Single<List<Rates>>
-    @Query("SELECT * FROM Rates ORDER BY symbol LIMIT :limit OFFSET :offset") fun getRates(limit: Int, offset: Int)
+    @Query("SELECT * FROM Rates ORDER BY symbol LIMIT :limit OFFSET :offset") fun getRates(limit: Int, offset: Int): Single<List<Rates>>
     @Insert(onConflict = OnConflictStrategy.REPLACE) fun insertRate(rate: Rates)
 }
