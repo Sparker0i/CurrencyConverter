@@ -31,6 +31,7 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation "androidx.cardview:cardview:${rootProject.ext.cardviewVersion}"
 
     implementation "com.google.dagger:dagger:${rootProject.ext.dagger2Version}"
     implementation "com.google.dagger:dagger-android:${rootProject.ext.dagger2Version}"

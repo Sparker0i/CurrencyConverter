@@ -16,6 +16,8 @@ class CurrencyViewModel @Inject constructor(
 ): ViewModel() {
     var currencyResult: MutableLiveData<List<Rates>> = MutableLiveData()
     var currencyError: MutableLiveData<String> = MutableLiveData()
+    var cryptocurrenciesLoader: MutableLiveData<Boolean> = MutableLiveData()
+
     lateinit var disposableObserver: DisposableObserver<List<Rates>>
 
     fun getCurrencyResult(): LiveData<List<Rates>> {
@@ -26,6 +28,10 @@ class CurrencyViewModel @Inject constructor(
         return currencyError
     }
 
+    fun getCurrencyLoader(): LiveData<Boolean> {
+        return cryptocurrenciesLoader
+    }
+
     fun getRates() {
         disposableObserver = object: DisposableObserver<List<Rates>>() {
             override fun onComplete() {
@@ -34,10 +40,12 @@ class CurrencyViewModel @Inject constructor(
 
             override fun onNext(t: List<Rates>) {
                 currencyResult.postValue(t)
+                cryptocurrenciesLoader.postValue(false)
             }
 
             override fun onError(e: Throwable) {
                 currencyError.postValue(e.message)
+                cryptocurrenciesLoader.postValue(false)
             }
         }
 
